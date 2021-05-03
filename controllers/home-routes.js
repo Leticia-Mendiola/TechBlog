@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { Gallery, Painting } = require('../models');
 
-// GET all galleries for homepage
 router.get('/', async (req, res) => {
   try {
     const techblogdb = await Gallery.findAll({
@@ -27,13 +26,12 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET one gallery
 router.get('/gallery/:id', async (req, res) => {
   // If the user is not logged in, redirect the user to the login page
   if (!req.session.loggedIn) {
     res.redirect('/login');
   } else {
-    // If the user is logged in, allow them to view the gallery
+    // If the user is logged in, allow them to view
     try {
       const dbGalleryData = await Gallery.findByPk(req.params.id, {
         include: [
