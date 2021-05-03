@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Posts, Comments } = require('../models');
 
+//View all posts when on the homepage
 router.get('/', async (req, res) => {
   try {
     const dbPostsData = await Posts.findAll({
@@ -26,6 +27,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+//When you click on a post, you can then view comments. Must be logged in to view comments
 router.get('/posts/:id', async (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect('/login');
@@ -63,13 +65,11 @@ router.get('/posts/:id', async (req, res) => {
   }
 });
 
-//Post New Post
+//Post a new post on the homepage. Must be logged in to post.
 router.post('/', async (req, res) => {
-  // If the user is not logged in, redirect the user to the login page
   if (!req.session.loggedIn) {
     res.redirect('/login');
   } else {
-    // If the user is logged in, allow them create new post
     try {
       const postData = await Posts.create({
         post_title: req.body.post_title,
@@ -85,13 +85,11 @@ router.post('/', async (req, res) => {
   }
 });
 
-//Post New Comment
+//When viewing an individual post, post a new comment. Must be logged in.
 router.post('/posts/:id', async (req, res) => {
-  // If the user is not logged in, redirect the user to the login page
   if (!req.session.loggedIn) {
     res.redirect('/login');
   } else {
-    // If the user is logged in, allow them create new post
     try {
       const postData = await Comments.create({
         username: req.body.username,
@@ -106,6 +104,7 @@ router.post('/posts/:id', async (req, res) => {
   }
 });
 
+//directs to login page if not logged in
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
