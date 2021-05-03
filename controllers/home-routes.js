@@ -85,6 +85,27 @@ router.post('/', async (req, res) => {
   }
 });
 
+//Post New Comment
+router.post('/posts/:id', async (req, res) => {
+  // If the user is not logged in, redirect the user to the login page
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+  } else {
+    // If the user is logged in, allow them create new post
+    try {
+      const postData = await Comments.create({
+        username: req.body.username,
+        comment_date: req.body.comment_date,
+        comment_body: req.body.comment_body,
+      });
+      res.status(200).json(postData)
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  }
+});
+
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
