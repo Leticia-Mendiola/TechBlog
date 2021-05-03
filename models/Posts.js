@@ -15,11 +15,7 @@ Posts.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    starting_date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    ending_date: {
+    post_date: {
       type: DataTypes.DATE,
       allowNull: false,
     },
@@ -28,7 +24,7 @@ Posts.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'gallery',
+    modelName: 'posts',
   }
 );
 
