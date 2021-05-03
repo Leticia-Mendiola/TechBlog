@@ -1,13 +1,27 @@
 [
     {
-      "comment_body": "Honestly MVC is the coolest part of the class so far!",
+      "comment_body": "I second that!",
       "username": "Sal",
-      "comment_date": "05/02/2021 11:30"
+      "comment_date": "05/02/2021 11:30",
+      "posts_id": "1"
     },
     {
-      "comment_body": "I really want to expand my knowledge on front-end web development",
+      "comment_body": "Me too!",
       "username": "Lernantino",
-      "comment_date": "05/02/2021 11:35"
+      "comment_date": "05/02/2021 11:35",
+      "posts_id": "1"
+    },
+    {
+    "comment_body": "I second that!",
+    "username": "Sal",
+    "comment_date": "05/02/2021 11:30",
+    "posts_id": "2"
+    },
+    {
+    "comment_body": "Me too!",
+    "username": "Lernantino",
+    "comment_date": "05/02/2021 11:35",
+    "posts_id": "2"
     }
   ]
   
