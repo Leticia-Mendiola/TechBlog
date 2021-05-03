@@ -3,7 +3,7 @@ const { Posts, Comments } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
-    const techblog_db = await Posts.findAll({
+    const dbPostsData = await Posts.findAll({
       include: [
         {
           model: Posts,
@@ -12,12 +12,12 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    const galleries = dbGalleryData.map((gallery) =>
-      gallery.get({ plain: true })
+    const posts = dbPostsData.map((posts) =>
+      posts.get({ plain: true })
     );
 
     res.render('homepage', {
-      galleries,
+      posts,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -26,30 +26,36 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/gallery/:id', async (req, res) => {
-  // If the user is not logged in, redirect the user to the login page
+router.get('/posts/:id', async (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect('/login');
   } else {
-    // If the user is logged in, allow them to view
     try {
-      const dbGalleryData = await Gallery.findByPk(req.params.id, {
+      const dbPostsData = await Posts.findByPk(req.params.id, {
         include: [
           {
-            model: Painting,
+            model: Posts,
             attributes: [
               'id',
-              'title',
-              'artist',
-              'exhibition_date',
-              'filename',
-              'description',
+              'posts_title',
+              'username',
+              'post_date',
+              'post_body',
             ],
           },
+          {
+            model: Comments,
+            attributes: [
+              'id',
+              'username',
+              'post_date',
+              'post_body',
+            ],
+          }
         ],
       });
-      const gallery = dbGalleryData.get({ plain: true });
-      res.render('gallery', { gallery, loggedIn: req.session.loggedIn });
+      const posts = dbPostsData.get({ plain: true });
+      res.render('posts', { posts, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
