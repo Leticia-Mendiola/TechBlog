@@ -32,4 +32,4 @@ Posts.init(
   }
 );
 
-module.exports = Gallery;
+module.exports = Posts;
