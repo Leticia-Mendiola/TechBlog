@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Gallery extends Model {}
+class Posts extends Model {}
 
-Gallery.init(
+Posts.init(
   {
     id: {
       type: DataTypes.INTEGER,
