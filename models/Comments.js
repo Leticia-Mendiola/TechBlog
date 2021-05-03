@@ -11,23 +11,11 @@ Comments.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    artist: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    exhibition_date: {
+    comment_date: {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    filename: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
+    comment_body: {
       type: DataTypes.STRING,
       allowNull: false,
     },
