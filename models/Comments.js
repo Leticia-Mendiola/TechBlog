@@ -31,10 +31,10 @@ Comments.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    post_id: {
+    posts_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'gallery',
+        model: 'posts',
         key: 'id',
       },
     },
