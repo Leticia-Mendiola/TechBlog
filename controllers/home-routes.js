@@ -63,19 +63,21 @@ router.get('/posts/:id', async (req, res) => {
   }
 });
 
-// GET one painting
-router.get('/painting/:id', async (req, res) => {
+//Post New Post
+router.post('/', async (req, res) => {
   // If the user is not logged in, redirect the user to the login page
   if (!req.session.loggedIn) {
     res.redirect('/login');
   } else {
-    // If the user is logged in, allow them to view the painting
+    // If the user is logged in, allow them create new post
     try {
-      const dbPaintingData = await Painting.findByPk(req.params.id);
-
-      const painting = dbPaintingData.get({ plain: true });
-
-      res.render('painting', { painting, loggedIn: req.session.loggedIn });
+      const postData = await Posts.create({
+        post_title: req.body.post_title,
+        username: req.body.username,
+        post_date: req.body.post_date,
+        post_body: req.body.post_body,
+      });
+      res.status(200).json(postData)
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
