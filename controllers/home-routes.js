@@ -3,11 +3,11 @@ const { Posts, Comments } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
-    const techblog_db = await Gallery.findAll({
+    const techblog_db = await Posts.findAll({
       include: [
         {
-          model: Painting,
-          attributes: ['filename', 'description'],
+          model: Posts,
+          attributes: ['post_title', 'username', 'post_date', 'post_body'],
         },
       ],
     });
