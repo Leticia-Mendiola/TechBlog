@@ -11,6 +11,10 @@ Comments.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     comment_date: {
       type: DataTypes.DATE,
       allowNull: false,
