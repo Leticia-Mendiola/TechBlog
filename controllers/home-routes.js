@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { Gallery, Painting } = require('../models');
+const { Posts, Comments } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
-    const techblogdb = await Gallery.findAll({
+    const techblog_db = await Gallery.findAll({
       include: [
         {
           model: Painting,
