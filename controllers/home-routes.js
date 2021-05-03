@@ -4,7 +4,7 @@ const { Gallery, Painting } = require('../models');
 // GET all galleries for homepage
 router.get('/', async (req, res) => {
   try {
-    const dbGalleryData = await Gallery.findAll({
+    const techblogdb = await Gallery.findAll({
       include: [
         {
           model: Painting,
