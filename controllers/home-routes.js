@@ -24,6 +24,8 @@ router.get('/posts/:id', withAuth, async (req, res) => {
             'username',
             'post_date',
             'post_body',
+            'created_at',
+            'updated_at'
           ],
         },
         {
@@ -33,6 +35,8 @@ router.get('/posts/:id', withAuth, async (req, res) => {
             'username',
             'comment_body',
             'post_id',
+            'created_at',
+            'updated_at'
           ],
         }
       ],
