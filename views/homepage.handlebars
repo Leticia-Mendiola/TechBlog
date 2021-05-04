@@ -6,10 +6,12 @@
   </div>
   {{#each allposts as |posts|}}
     <div class="row">
-    <div class="col s12 m6">
+    <div class="col s12">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
-          <span class="card-title">{{posts.post_title}}</span><span>Posted By:{{posts.username}}</span>
+          <div class="row">
+          <span class="card-title col s8">{{posts.post_title}}</span><span class="col s4">Posted By:{{posts.username}}</span>
+          </div>
           <p>{{posts.post_body}}</p>
         </div>
         <div class="card-action">
@@ -19,17 +21,6 @@
       </div>
     </div>
   </div>
-    {{!-- <div class="card col-md-5">
-      <p>
-        {{posts.id}}.
-        {{posts.post_title}}
-      </p>
-    </div>
-    <div class="card col-md-7">
-      <p>
-        {{posts.post_body}}
-      </p>
-    </div> --}}
   {{/each}}
 </div>
 <!-- This is the form for adding a new dish -->
@@ -38,35 +29,21 @@
     RSVP with the dish you plan to bring!
   </h2>
   <form class="new-dish-form">
-    <label for="dish_name">
-      Dish Name:
+    <label for="post_title">
+      Title:
     </label>
     <br />
-    <textarea id="dish_name" name="dish_name" rows="2" cols="30">
-      {{dish_name}}
+    <textarea id="post_title" name="post_title" rows="2" cols="30">
+      {{post_title}}
     </textarea>
     <br />
-    <label for="description">
-      Description:
+    <label for="post_body">
+      Main Body:
     </label>
     <br />
-    <textarea id="description" name="description" rows="5" cols="30">
-      {{description}}
+    <textarea id="post_body" name="post_body" rows="5" cols="30">
+      {{post_body}}
     </textarea>
-    <br />
-    <label for="guest_name">
-      Guest Name:
-    </label>
-    <br />
-    <textarea id="guest_name" name="guest_name" rows="2" cols="30">
-      {{guest_name}}
-    </textarea>
-    <br />
-    <br />
-    <input type="checkbox" id="has_nuts" name="has_nuts" value="true" />
-    <label for="has_nuts">
-      Check box if this dish contains nuts
-    </label>
     <br />
     <button type="submit" value="Submit">
       Submit
