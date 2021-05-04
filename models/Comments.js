@@ -15,10 +15,6 @@ Comments.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    comment_date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
     comment_body: {
       type: DataTypes.STRING,
       allowNull: false,
