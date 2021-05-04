@@ -1,20 +1,20 @@
 <div class="menu-container">
   <div class="card-header col-md-10">
     <h2>
-      &#127869 Current Menu
+      Latest Posts
     </h2>
   </div>
-  {{#each dishes as |dish|}}
-    <div class="dish col-md-5">
+  {{#each allposts as |posts|}}
+    <div class="col-md-5">
       <p>
-        {{dish.id}}.
-        {{dish.dish_name}}
+        {{posts.id}}.
+        {{posts.posts_title}}
       </p>
     </div>
     <div class="col-md-7">
       <p>
         Guest:
-        {{dish.guest_name}}
+        {{posts.posts_body}}
       </p>
     </div>
   {{/each}}
