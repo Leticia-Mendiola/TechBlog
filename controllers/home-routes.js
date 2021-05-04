@@ -14,13 +14,13 @@ router.get('/', async (req, res) => {
 //When you click on a post, you can then view comments. Must be logged in to view comments
 router.get('/posts/:id', withAuth, async (req, res) => {
   try {
-    const dbPostsData = await Posts.findByPk(req.params.id, {
+    const postsData = await Posts.findByPk(req.params.id, {
       include: [
         {
           model: Posts,
           attributes: [
             'id',
-            'posts_title',
+            'post_title',
             'username',
             'post_date',
             'post_body',
@@ -31,14 +31,14 @@ router.get('/posts/:id', withAuth, async (req, res) => {
           attributes: [
             'id',
             'username',
-            'post_date',
-            'post_body',
+            'comment_body',
+            'post_id',
           ],
         }
       ],
     });
-    const posts = dbPostsData.get({ plain: true });
-    res.render('posts', { posts, loggedIn: req.session.loggedIn });
+    const onepost = postsData.get({ plain: true });
+    res.render('posts', { onepost, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
