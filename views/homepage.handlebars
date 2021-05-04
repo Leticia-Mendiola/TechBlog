@@ -1,17 +1,17 @@
 <div class="menu-container">
-  <div class="card-header col-md-10">
+  <div class="card-header align-center-x1 col-md-10">
     <h2>
       Latest Posts
     </h2>
   </div>
   {{#each allposts as |posts|}}
-    <div class="col-md-5">
+    <div class="card col-md-5">
       <p>
         {{posts.id}}.
         {{posts.post_title}}
       </p>
     </div>
-    <div class="col-md-7">
+    <div class="card col-md-7">
       <p>
         {{posts.post_body}}
       </p>
