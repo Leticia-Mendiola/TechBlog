@@ -4,29 +4,12 @@ const withAuth = require('../utils/auth');
 
 //View all posts when on the homepage
 router.get('/', async (req, res) => {
-  try {
-    const dbPostsData = await Posts.findAll({
-      include: [
-        {
-          model: Posts,
-          attributes: ['post_title', 'username', 'post_date', 'post_body'],
-        },
-      ],
+  const dishData = await Dish.findAll().catch((err) => { 
+      res.json(err);
     });
-
-    const posts = dbPostsData.map((posts) =>
-      posts.get({ plain: true })
-    );
-
-    res.render('homepage', {
-      posts,
-      loggedIn: req.session.loggedIn,
+      const dishes = dishData.map((dish) => dish.get({ plain: true }));
+      res.render('all', { dishes });
     });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
 
 //When you click on a post, you can then view comments. Must be logged in to view comments
 router.get('/posts/:id', withAuth, async (req, res) => {
