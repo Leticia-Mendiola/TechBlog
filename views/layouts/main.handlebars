@@ -12,16 +12,19 @@
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      Modern Tech Blog
-    </h1>
-    {{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
-    {{/if}}
-  </header>
+  <nav class="blue lighten-1">
+    <div class="nav-wrapper">
+      <a href="#" style="margin-left: 50px" class="brand-logo">Modern Tech Blog</a>
+      <ul id="nav-mobile" class="right">
+        <li>
+        {{#if logged_in}}
+        <button class="btn" id="logout">logout</button>
+        {{/if}}
+        </li>
+      </ul>
+    </div>
+  </nav>
+
   <main class="container container-fluid mt-5">
     {{{ body }}}
   </main>
