@@ -17,9 +17,9 @@
       <a href="#" style="margin-left: 50px" class="brand-logo">Modern Tech Blog</a>
       <ul id="nav-mobile" class="right">
         <li>
-        {{#if logged_in}}
+        {{!-- {{#if logged_in}} --}}
         <button class="btn" id="logout">logout</button>
-        {{/if}}
+        {{!-- {{/if}} --}}
         </li>
       </ul>
     </div>
@@ -33,9 +33,9 @@
   </footer>
 
   <!-- Only include the logout script if the user is logged in -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+  {{!-- {{#if logged_in}} --}}
+  <script src="../../public/js/logout.js"></script>
+  {{!-- {{/if}} --}}
 </body>
 
 </html>
