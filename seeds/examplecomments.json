@@ -2,22 +2,22 @@
     {
     "comment_body": "I second that!",
     "username": "Amiko",
-    "posts_id": "1"
+    "posts_id": 1
     },
     {
     "comment_body": "Me too!",
     "username": "Jordan",
-    "posts_id": "1"
+    "posts_id": 1
     },
     {
     "comment_body": "I second that!",
     "username": "Blake",
-    "posts_id": "2"
+    "posts_id": 2
     },
     {
     "comment_body": "Me too!",
     "username": "Amiko",
-    "posts_id": "2"
+    "posts_id": 2
     }
   ]
   
